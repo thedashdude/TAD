@@ -1,4 +1,3 @@
-# Daschel Cooper
 import re
 import sys
 import math
