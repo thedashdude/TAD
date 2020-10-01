@@ -1,0 +1,149 @@
+!return the Nth prime!
+#0
+#NOTPRIME
+#MODNOTZERO
+#numPrimesFound
++
+#1
+#CONTINUE
++
+#2
+#latestGuess
++
+#3
+=>
+#N
+
+=numPrimesFound
+
+=N[
+		!check if the latest guess is prime!
+		!if it is, increment numPrimesFound!
+		=latestGuess
+		+
+		#latestGuess
+		#x
+
+		!This whole block is the primalitycheck program, but it adds the output to numPrimesFound instead of printing it!
+				=0
+				#NOTPRIME
+				#MODNOTZERO
+				=1
+				#CONTINUE
+
+
+				!If x is less than or equal to 1, return false!
+				=1
+				#b
+				=x
+				#a
+				!compute a <= b! !1 for true, 0 for false!
+				=0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 #ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ]
+				=ISA
+
+				#ISA[
+					=0
+					#CONTINUE
+					!Do not increase numPrimesFound!
+				]
+
+				!otherwise, if x is less than or equal to three, return true!
+				#CONTINUE[
+					=3
+					#b
+					=x
+					#a
+
+					!compute a <= b! !1 for true, 0 for false!
+					=0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 #ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ]
+					=ISA
+
+					#ISA[
+						=0
+						#CONTINUE
+						=numPrimesFound
+						+
+						#numPrimesFound
+						!increase numPrimesFound!
+						
+					]
+				]
+
+
+				!otherwise, check for divisors!
+				#CONTINUE[
+
+					!compute the squareroot of x!
+					=0
+					#estimate
+					=x
+					#n
+					=0[ =estimate + #estimate =0 #estimate[#estimate[+]]+ #a =n+ #b !compute a <= b! !1 for true, 0 for false! =0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 	#ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ] =ISA ] =estimate - #estimate 
+
+
+					=estimate
+					-
+					#estimate
+					=2
+					#estimate[
+						#candidate
+
+						!find n modulo candidate!
+						=0
+						#modulo
+						#IF
+
+						=x
+						#c
+						=candidate
+						#d
+
+						#c[
+						 =1
+						 #IF
+						 =modulo
+						 +
+						 #modulo
+
+						 =d[
+						  =0
+						  #IF
+						  =d
+						 ]
+						 #IF[
+						  =0
+						  #modulo
+						 ]
+						]
+						=modulo
+						!done with modulo!
+
+						=0
+						#MODNOTZERO
+						=modulo[
+							=1
+							#MODNOTZERO
+							=modulo
+						]
+						=1
+						#MODNOTZERO[-]
+						#MODISZERO
+						#MODISZERO[
+							=1
+							#NOTPRIME
+						]
+
+						=candidate
+						+
+					]
+					=1
+					#NOTPRIME[-]
+					
+					#numPrimesFound[+]
+					#numPrimesFound
+				]
+		=numPrimesFound
+]
+
+=latestGuess
+#<
