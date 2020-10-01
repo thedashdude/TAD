@@ -1,0 +1,47 @@
+!divide a by b!
+#0
+#result
+#modulo
+#IF
++
+#1
+=>
+#a
+=>
+#b
+
+!compute a modulo b!
+=0
+#a[
+ =1
+ #IF
+ =modulo
+ +
+ #modulo
+
+ =b[
+  =0
+  #IF
+  =b
+ ]
+ #IF[
+  =0
+  #modulo
+ ]
+]
+!modulo done!
+
+=a
+#modulo[-]
+=0[
+ #b[-]
+ #partial
+ =result
+ +
+ #result
+ =partial
+]
+
+=result
+#<
+

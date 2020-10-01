@@ -1,0 +1,53 @@
+!take the square root of input n!
+!rounded down!
+#0
+#estimate
++
+#1
+=>
+#n
++
+!loop until the estimate exceeds n!
+=0[
+	!increment the estimate!
+	=estimate
+	+
+	#estimate
+
+	=0
+	#estimate[#estimate[+]]+
+	#a
+
+	=n+
+	#b
+
+	!compute a <= b!
+	!1 for true, 0 for false!
+	=0
+	#ISA
+	#ISB
+
+	=b
+
+	=0[
+		=ISA
+		#ISB
+		=0+
+		#ISA[-]
+		#ISA
+
+		=0
+		#ISA[=a]
+		#ISB[=b]
+		-
+		#ISA[#a]
+		#ISB[#b]
+	]
+
+	=ISA
+]
+=estimate
+-
+#estimate
+
+#<

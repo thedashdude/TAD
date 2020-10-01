@@ -1,0 +1,30 @@
+!compute a <= b!
+!1 for true, 0 for false!
+#ISA
+#ISB
+#0
+=>+
+#a
+=>+
+#b
+
+
+=0[
+ 
+ =ISA
+ #ISB
+ =0+
+ #ISA[-]
+ #ISA
+ 
+ =0
+ #ISA[=a]
+ #ISB[=b]
+ -
+ #ISA[#a]
+ #ISB[#b]
+]
+=ISA
+#<
+
+

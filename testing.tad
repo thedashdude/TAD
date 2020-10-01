@@ -1,0 +1,33 @@
+!modulo 2!
+#0
+#var1
+#var2
++
+#1
+=>
+#value
+
+=0
+
+!the two in question!
+++
+#mod
+#value[
+ =1
+ #var2
+ =var1
+ +
+ #var1
+
+ =mod[
+  =0
+  #var2
+  =mod
+ ]
+ #var2[
+  =0
+  #var1
+ ]
+]
+=var1
+#<

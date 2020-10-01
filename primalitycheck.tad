@@ -1,0 +1,122 @@
+!check if the input x is prime!
+#0
+#NOTPRIME
+#MODNOTZERO
++
+#1
+#CONTINUE
++
+#2
++
+#3
+=>
+#x
+
+=0
+
+!If x is less than or equal to 1, return false!
+=1
+#b
+=x
+#a
+!compute a <= b! !1 for true, 0 for false!
+=0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 #ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ]
+=ISA
+
+#ISA[
+	=0
+	#CONTINUE
+	=0 !return false!
+	#<
+]
+
+!otherwise, if x is less than or equal to three, return true!
+#CONTINUE[
+	=3
+	#b
+	=x
+	#a
+
+	!compute a <= b! !1 for true, 0 for false!
+	=0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 #ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ]
+	=ISA
+
+	#ISA[
+		=0
+		#CONTINUE
+		=1 !return true!
+		#<
+	]
+]
+
+
+!otherwise, check for divisors!
+#CONTINUE[
+
+	!compute the squareroot of x!
+	=0
+	#estimate
+	=x
+	#n
+	=0[ =estimate + #estimate =0 #estimate[#estimate[+]]+ #a =n+ #b !compute a <= b! !1 for true, 0 for false! =0 #ISA #ISB =b =0[ =ISA #ISB =0+ #ISA[-] #ISA =0 	#ISA[=a] #ISB[=b] - #ISA[#a] #ISB[#b] ] =ISA ] =estimate - #estimate 
+
+
+	=estimate
+	-
+	#estimate
+	=2
+	#estimate[
+		#candidate
+
+		!find n modulo candidate!
+		=0
+		#modulo
+		#IF
+
+		=x
+		#c
+		=candidate
+		#d
+
+		#c[
+		 =1
+		 #IF
+		 =modulo
+		 +
+		 #modulo
+
+		 =d[
+		  =0
+		  #IF
+		  =d
+		 ]
+		 #IF[
+		  =0
+		  #modulo
+		 ]
+		]
+		=modulo
+		!done with modulo!
+
+		=0
+		#MODNOTZERO
+		=modulo[
+			=1
+			#MODNOTZERO
+			=modulo
+		]
+		=1
+		#MODNOTZERO[-]
+		#MODISZERO
+		#MODISZERO[
+			=1
+			#NOTPRIME
+		]
+
+		=candidate
+		+
+	]
+	=1
+	#NOTPRIME[-]
+	#<
+]
