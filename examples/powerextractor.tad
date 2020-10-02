@@ -1,0 +1,41 @@
+#0
++
+#1
++
+#2
++
+#3
+
+
+!find the largest exponent n such that A = aB^n!
+=> #varAxEXT
+=> #varBxEXT
+
+
+
+!Calculate varAxMOD modulo varBxMOD!
+=> #varAxMOD
+=> #varBxMOD
+
+=0
+#varAccxMOD
+#boolIFxMOD
+#varAxMOD[
+ =1
+ #boolIFxMOD
+ =varAccxMOD
+ +
+ #varAccxMOD
+
+ =varBxMOD[
+  =0
+  #boolIFxMOD
+  =varBxMOD
+ ]
+ #boolIFxMOD[
+  =0
+  #varAccxMOD
+ ]
+]
+=varAccxMOD
+#<

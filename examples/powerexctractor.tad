@@ -1,0 +1,34 @@
+#0
++
+#1
++
+#2
++
+#3
+
+
+!Calculate varAxMOD modulo varBxMOD
+=> #varBxMOD
+=> #varAxMOD
+=0
+#varAccxMOD
+#boolIFxMOD
+#varAxMOD[
+ =1
+ #boolIFxMOD
+ =varAccxMOD
+ +
+ #varAccxMOD
+
+ =varBxMOD[
+  =0
+  #boolIFxMOD
+  =varBxMOD
+ ]
+ #boolIFxMOD[
+  =0
+  #varAccxMOD
+ ]
+]
+=varAccxMOD
+=>
